@@ -1,7 +1,7 @@
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
---▫▫   Raviv Resto Shaman Beta v0.9   ▫▫
---▫▫             ProfileUI            ▫▫
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--######################################
+--##   Raviv Resto Shaman Beta v0.9   ##
+--##             ProfileUI            ##
+--######################################
 local TMW                                            = TMW 
 local CNDT                                            = TMW.CNDT
 local Env                                            = CNDT.Env

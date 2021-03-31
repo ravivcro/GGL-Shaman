@@ -1,6 +1,6 @@
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
---▫▫   Raviv Resto Shaman Beta v0.9   ▫▫
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--######################################
+--##   Raviv Resto Shaman Beta v0.9   ##
+--######################################
 local _G, setmetatable                          = _G, setmetatable
 local A                                         = _G.Action
 local Covenant                                  = _G.LibStub("Covenant")
@@ -53,7 +53,7 @@ UnitExists, UnitIsPlayer, UnitClass, UnitCreatureType, UnitInRange, UnitInRaid, 
 --For Toaster
 local Toaster                                    = _G.Toaster
 local GetSpellTexture                            = _G.TMW.GetSpellTexture
---- ▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫ CONTENT ▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--- ########################### CONTENT ###########################
 -- Spell ID List --
 Action[ACTION_CONST_SHAMAN_RESTORATION] = {
     ---Racial---
@@ -144,7 +144,7 @@ local Temp = {
     AuraForDisableMag                       = {"TotalImun", "DamageMagicImun", "Freedom", "CCTotalImun"},
     AuraForInterrupt                        = {"TotalImun", "DamagePhysImun", "KickImun"},
 }
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--####################################################################################################################
 local GetTotemInfo, IsMouseButtonDown, UnitIsUnit = GetTotemInfo, IsMouseButtonDown, UnitIsUnit
 local player = "player"
 local targettarget = "targettarget"
@@ -170,17 +170,17 @@ local function RotationsVariables()
     getmembersAll = HealingEngine.Data.SortedUnitIDs
     UseDownpourOnSelf = A.GetToggle(2, "UseDownpourOnSelf")
 end
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--##################################################################################################################
 local function IsEnoughHPS(unitID)
     return Unit(player):GetHPS() > max(Unit(unitID):GetDMG() - Unit(unitID):GetHEAL(), 0)
 end
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--##################################################################################################################
 TMW:RegisterCallback("TMW_ACTION_HEALINGENGINE_UNIT_UPDATE", function(callbackEvent, thisUnit, db, QueueOrder)  
     if thisUnit.isSelf and thisUnit.HP >= 85 then
         thisUnit.Enabled = false
     end         
 end)
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--##################################################################################################################
 local function CanAoEHealing(unit)
     AoEHealingUnits = HealingEngineGetMinimumUnits(HealingEngineIsManaSave() and 0 or 1, 6)
     if AoEHealingUnits < 3 then 
@@ -203,7 +203,7 @@ local function CanAoEHealing(unit)
         end 
     end 
 end 
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--##################################################################################################################
 local function CanCooldowns(unit)
     local CooldownsUnits = HealingEngineGetMinimumUnits(1)
     -- Reduce size in raid by 25%
@@ -226,7 +226,7 @@ local function CanCooldowns(unit)
         end 
     end 
 end
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--#################################################################################################################
 local function GetByRange(count, range, isStrictlySuperior, isStrictlyInferior, isStrictlyEqual, isCheckEqual, isCheckCombat) -- Range check function
     -- @return boolean 
     local c = 0 
@@ -286,7 +286,7 @@ local function GetByRange(count, range, isStrictlySuperior, isStrictlyInferior, 
     
 end  
 GetByRange = A.MakeFunctionCachedDynamic(GetByRange)
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--#############################################################################################################
     if Unit(player):CombatTime() == 0 then  
         return 
     end
@@ -325,7 +325,7 @@ GetByRange = A.MakeFunctionCachedDynamic(GetByRange)
         return A.AstralShift
     end 
 SelfDefensives = A.MakeFunctionCachedStatic(SelfDefensives)
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--#############################################################################################################
 --- PvE
 -- local function WipeAgro()
     -- local units = MultiUnits:GetActiveUnitPlates()
@@ -338,7 +338,7 @@ SelfDefensives = A.MakeFunctionCachedStatic(SelfDefensives)
     -- end
     -- return false
 -- end
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--##########################################################################################################
 ------------------------------------------------------------------------------------------------------------
 -- StopQuake --
 ------------------------------------------------------------------------------------------------------------
@@ -348,7 +348,7 @@ local function StopQuake()
     end
 end   
 ------------------------------------------------------------------------------------------------------------ 
---- ▫▫▫▫▫▫▫ ACTION LISTS ▫▫▫▫▫▫▫
+--- ####### ACTION LISTS #######
 A[3] = function(icon, isMulti) -- Single target icon displayer
     RotationsVariables()
     
@@ -362,9 +362,9 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
     end
     
     
-    --▫▫▫▫▫▫▫▫▫▫▫▫▫   
-    --▫▫▫Purge  ▫▫▫
-    --▫▫▫▫▫▫▫▫▫▫▫▫▫
+    --#############   
+    --###Purge  ###
+    --#############
     
     if inCombat and A.Purge:IsReady(unit) and not Unit(unit):IsBoss() and not RaidGroup() and AuraIsValid(unit, "UsePurge", "MagicMovement") then
         return A.Purge:Show(icon)
@@ -377,9 +377,9 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
     end
     
     
-    --▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫ 
-    --▫▫▫DPS ROTATION ▫▫▫
-    --▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+    --################### 
+    --###DPS ROTATION ###
+    --###################
     
     local function DamageRotation(unit)
         
@@ -407,9 +407,9 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
         end
     end
     
-    --▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫   
-    --▫▫▫HPS ROTATION ▫▫▫
-    --▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫ 
+    --###################   
+    --###HPS ROTATION ###
+    --################### 
     
     local function HealingRotation(unit)
         local useDispel, useShields, useHoTs, useUtils = HealingEngine.GetOptionsByUnitID(unit)
@@ -442,9 +442,9 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
                 return A.NaturesCure:Show(icon)
             end 
             
-            --▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫ 
+            --#################################################################################################### 
 
-            --▫▫BURST SECTION▫▫--
+            --##BURST SECTION##--
             if inCombat and A.BurstIsON(unit) and CanCooldowns() then
 
 				-- 'PrimordialWave'
@@ -478,9 +478,9 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
 				end		
      
             end  
-			--▫▫END BURST SECTION▫▫--
+			--##END BURST SECTION##--
             
-			--▫▫EMERGENCY SECTION▫▫--
+			--##EMERGENCY SECTION##--
             if inCombat and A.BurstIsON(unit) and Emergency then
 				-- 'CloudBurstTotem' 
                 if A.CloudBurstTotem:IsSpellLearned() and A.CloudBurstTotem:IsReady(unitID, true) then
@@ -517,9 +517,9 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
                     return A.Trinket2:Show(icon)    
                 end    
             end
-            --▫▫END EMERGENCY SECTION▫▫--
+            --##END EMERGENCY SECTION##--
 			
-			--▫▫HPS SECTION▫▫--
+			--##HPS SECTION##--
 			
 			-- 'Riptide' -- 
 			if A.Riptide:IsReady(unitID, true) and Unit(unit):HasBuffs(A.TidalWave.ID, true) <= 2 and inCombat then
@@ -547,7 +547,7 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
 			end
 									
              
-            --▫▫AOE HEALING SECTION▫▫--
+            --##AOE HEALING SECTION##--
             if inCombat and CanAoEHealing() then
 			
 				-- 'ChainHeal'
@@ -561,7 +561,7 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
 				end
 				
             end
-            --▫▫END AOE HEALING SECTION▫▫--
+            --##END AOE HEALING SECTION##--
 			
 			-- 'Wellspring' 
 			if A.Wellspring:IsSpellLearned() and A.Wellspring:IsReady(unitID, true) and notMoving and Unit(unit):GetRange() <= 20 then
@@ -579,13 +579,13 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
                     end                
                 end
             end 
-			--▫▫END HPS SECTION▫▫--
+			--##END HPS SECTION##--
         end
     end
     
-    --▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
-    --▫▫▫MAIN ACTION CALLS ▫▫▫
-    --▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+    --########################
+    --###MAIN ACTION CALLS ###
+    --########################
     
     -- Defensive
     local SelfDefensive = SelfDefensives()
@@ -620,7 +620,7 @@ A[3] = function(icon, isMulti) -- Single target icon displayer
         end 
     end     
 end 
---▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫▫
+--################################################################################################################
 local function RotationPassive(icon) 
     RotationsVariables()
     if GetToggle(1, "StopCast") then
